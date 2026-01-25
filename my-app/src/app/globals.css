@@ -13,6 +13,7 @@
   --color-border-secondary: var(--border-secondary);
   --color-button-primary: var(--button-primary);
   --color-background-secondary: var(--background-secondary);
+  --color-border-ai: var(--border-ai);
 }
 
 :root {
@@ -24,6 +25,7 @@
   --border-secondary: #000000;
   --button-primary: #434343;
   --background-secondary: #201e1c;
+  --border-ai: #9c9c9c;
 }
 
 .dark {
