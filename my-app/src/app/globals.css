@@ -1,12 +1,25 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Nanum+Pen+Script&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+  --font-michroma: 'Michroma', sans-serif;
+  --font-nanum-pen-script: 'Nanum Pen Script', cursive;
+  --color-background: var(--background);
+  --color-orange: var(--orange);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-primary: var(--border-primary);
+  --color-button-primary: var(--button-primary);
+}
 
 :root {
   --background: #ffffff;
-  --orange: #fb631b;
+  --orange: #fa5a14;
   --text-primary: #181818;
   --text-secondary: #858483;
+  --border-primary: #d2d2d2;
+  --button-primary: #434343;
 }
 
 .dark {
@@ -14,11 +27,11 @@
   --orange: #fb631b;
   --text-primary: #acacac;
   --text-secondary: #858483;
+  --border-primary: #9c9c9c;
 }
 
- 
-body {
-  background: var(--background);
-  color: var(--text-primary);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    font-family: monospace;
+  }
 }

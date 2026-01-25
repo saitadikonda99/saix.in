@@ -8,14 +8,7 @@ const config: Config = {
     "./src/providers/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-         background: "var(--background)",
-         orange: "var(--orange)",
-         textPrimary: "var(--text-primary)",
-         textSecondary: "var(--text-secondary)"
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }
