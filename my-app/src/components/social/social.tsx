@@ -41,7 +41,9 @@ const Social = () => {
               <X size={20} />
             </Link>
             <Link 
-              href="mailto:your-email@example.com" 
+              href="mailto:saitadikonda.dev@gmail.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="text-text-primary hover:text-text-secondary transition-all duration-300"
             >
               <Mail size={20} />
