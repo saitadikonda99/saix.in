@@ -6,7 +6,7 @@ import Skills from "@/components/ui/skills/skills";
 import Social from "@/components/ui/social/social";
 import Projects from "@/components/ui/projects/projects";
 import Blogs from "@/components/ui/blogs/blogs";
-
+import Footer from "@/components/footer/footer";
 
 export default function Home() {
   return (
@@ -27,6 +27,7 @@ export default function Home() {
       <div id="blogs">
         <Blogs />
       </div>
+      <Footer />
     </div>
   );
 }
