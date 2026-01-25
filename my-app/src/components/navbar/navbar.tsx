@@ -5,12 +5,26 @@ const Navbar = () => {
   const handleScrollTo = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const navbarHeight = 120;  
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      setTimeout(() => {
+        element.classList.add('blink-highlight');
+        setTimeout(() => {
+          element.classList.remove('blink-highlight');
+        }, 1200);
+      }, 300);
     }
   };
 
   return (
-    <div className="w-full py-4 sticky top-0 z-50 bg-background">
+    <div className="w-full pt-4 sticky top-0 z-50 bg-background">
       <div className="w-full border-r-1 border-l-1 border-border-primary">
       <div className="w-full bg-background px-4 py-1 flex items-center justify-between">
         <div className="w-fit">

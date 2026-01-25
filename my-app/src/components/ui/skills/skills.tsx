@@ -62,11 +62,11 @@ const skills = () => {
     ]
 
     return (
-        <div className="w-full pb-15">
+        <div className="w-full">
             <div className="w-full pb-5">
                 <p className="text-text-primary text-[1.2rem] font-bold">Skills</p>
             </div>
-            <div className="w-full flex flex-wrap items-center justify-start gap-5">
+            <div className="w-full flex flex-wrap items-center justify-start gap-5 sm:justify-between">
                 {skills.map((skill, index) => (
                     <div 
                         key={index}

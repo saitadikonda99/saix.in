@@ -39,5 +39,35 @@
 @layer base {
   body {
     font-family: monospace;
+    background-color: var(--background);
   }
+}
+
+@keyframes blink-highlight {
+  0%, 100% {
+    background-color: transparent;
+  }
+  8.33%, 16.66% {
+    background-color: rgba(250, 90, 20, 0.25);  
+  }
+  25%, 33.33% {
+    background-color: transparent;
+  }
+  41.66%, 50% {
+    background-color: rgba(250, 90, 20, 0.25);  
+  }
+  58.33%, 66.66% {
+    background-color: transparent;
+  }
+  75%, 83.33% {
+    background-color: rgba(250, 90, 20, 0.25);  
+  }
+  91.66% {
+    background-color: transparent;
+  }
+}
+
+.blink-highlight {
+  animation: blink-highlight 1200ms ease-in-out;
+  transition: background-color 0.1s ease;
 }

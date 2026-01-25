@@ -4,7 +4,7 @@ import { Copy, Check } from 'lucide-react'
 
 const About = () => {
     const [copied, setCopied] = useState(false);
-    const curlCommand = "curl -X GET http://localhost:3000/api/about";
+    const curlCommand = "curl -X GET https://saix.in/api/about";
 
     const handleCopy = async () => {
         try {
@@ -17,7 +17,7 @@ const About = () => {
     };
 
     return (
-        <div className="w-full pt-15 pb-10">
+        <div className="w-full">
             <div className="w-full flex flex-col items-center justify-between gap-4">
 
                 <div className="w-full bg-background border-1 border-border-primary">

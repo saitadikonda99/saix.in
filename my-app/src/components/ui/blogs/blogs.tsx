@@ -47,9 +47,9 @@ const blogsData: Blog[] = [
 
 const Blogs = () => {
   return (
-    <div className="w-full pb-15">
+    <div className="w-full">
       <div className="w-full flex flex-col items-center justify-between gap-4">
-        <div className="w-full py-4">
+        <div className="w-full pb-5">
           <h2 className="text-text-primary text-[1.2rem] font-bold">Blogs</h2>
         </div>
         
@@ -66,7 +66,7 @@ const Blogs = () => {
               >
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300"></div>
                 <div className="w-full h-full flex items-end justify-end relative z-10">
-                  <div className="text-text-primary text-[.8rem] font-bold p-2 bg-black/20 group-hover:bg-black/40 transition-all duration-300">
+                  <div className="text-[#181818] text-[.8rem] font-bold p-2 bg-black/20 group-hover:bg-black/40 transition-all duration-300">
                     {blog.title}
                   </div>
                 </div>

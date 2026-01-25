@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 const Social = () => {
   return (
-    <div className="w-full pb-15">
+    <div className="w-full">
       <div className="w-full flex flex-col items-center justify-between gap-4">
-        <div className="w-full bg-background">
-          <div className="w-full flex items-center justify-center gap-6 px-4 py-4">
+        <div className="w-full">
+          <div className="w-full flex items-center justify-center gap-6">
             <Link 
               href="https://github.com/saitadikonda99" 
               target="_blank" 

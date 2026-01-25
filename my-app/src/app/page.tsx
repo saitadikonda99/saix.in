@@ -10,21 +10,21 @@ import Footer from "@/components/footer/footer";
 
 export default function Home() {
   return (
-    <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto bg-background text-textPrimary py-2 sm:py-4 px-4 sm:px-0">
+    <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto bg-background text-textPrimary py-2 sm:py-4 px-4 sm:px-0 flex flex-col items-start justify-center gap-15">
       <Navbar />
-      <div id="about">
+      <div id="about" className="w-full">
         <About />
       </div>
-      <div id="social">
+      <div id="social" className="w-full">
         <Social />
       </div>
-      <div id="skills">
+      <div id="skills" className="w-full">
         <Skills />
       </div>
-      <div id="projects">
+      <div id="projects" className="w-full">
         <Projects />
       </div>
-      <div id="blogs">
+      <div id="blogs" className="w-full">
         <Blogs />
       </div>
       <Footer />
