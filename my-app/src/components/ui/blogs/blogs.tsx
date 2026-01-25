@@ -47,7 +47,7 @@ const blogsData: Blog[] = [
 
 const Blogs = () => {
   return (
-    <div className="w-full py-10">
+    <div className="w-full pb-15">
       <div className="w-full flex flex-col items-center justify-between gap-4">
         <div className="w-full py-4">
           <h2 className="text-text-primary text-[1.2rem] font-bold">Blogs</h2>

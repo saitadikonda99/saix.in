@@ -17,7 +17,7 @@ const About = () => {
     };
 
     return (
-        <div className="w-full py-10">
+        <div className="w-full pt-15 pb-10">
             <div className="w-full flex flex-col items-center justify-between gap-4">
 
                 <div className="w-full bg-background border-1 border-border-primary">
