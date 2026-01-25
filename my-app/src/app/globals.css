@@ -10,7 +10,9 @@
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-border-primary: var(--border-primary);
+  --color-border-secondary: var(--border-secondary);
   --color-button-primary: var(--button-primary);
+  --color-background-secondary: var(--background-secondary);
 }
 
 :root {
@@ -19,7 +21,9 @@
   --text-primary: #181818;
   --text-secondary: #858483;
   --border-primary: #d2d2d2;
+  --border-secondary: #000000;
   --button-primary: #434343;
+  --background-secondary: #201e1c;
 }
 
 .dark {
@@ -28,6 +32,8 @@
   --text-primary: #acacac;
   --text-secondary: #858483;
   --border-primary: #9c9c9c;
+  --border-secondary: #9c9c9c;
+  --background-secondary: #201e1c;
 }
 
 @layer base {
