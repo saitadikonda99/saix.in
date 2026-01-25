@@ -2,7 +2,7 @@ import React from 'react'
 
 const navbar = () => {
   return (
-        <div className="w-full border-r-1 border-l-1 border-border-ai px-4 py-1">
+        <div className="w-full sticky top-0 z-50 border-r-1 border-l-1 border-border-ai px-4 py-1">
             <div className="">
                 <p>SAI TADIKONDA</p>
             </div>
