@@ -2,7 +2,8 @@ import React from 'react'
 
 import Navbar from '@/components/ai/navbar/navbar'
 import About from '@/components/ai/ui/about/about'
-import Social from '@/components/ai/ui/about/social/social'
+import Social from '@/components/ai/ui/social/social'
+import Skills from '@/components/ai/ui/skills/skills'
 
 const page = () => {
   return (
@@ -11,6 +12,7 @@ const page = () => {
             <Navbar />
             <About />
             <Social />
+            <Skills />
         </div>
     </div>
   )

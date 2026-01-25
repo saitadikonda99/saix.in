@@ -3,7 +3,7 @@ import React from 'react'
 const about = () => {
     return (
         <div className="w-full border-r-1 border-l-1 border-border-ai px-4 py-1">
-            <p className="text-zinc-400"># About</p>
+            <p className="text-zinc-400">## About</p>
             <p className="text-green-400">
                 $ curl https://saix.in/api/about
             </p>
