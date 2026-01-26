@@ -13,7 +13,7 @@ const navbar = () => {
                 <p>[blogs](https://saix.in/#blogs)</p>
                 <p className="w-full bg-white text-black my-1">[social](https://saix.in/#social)</p>
                 <p className="w-full bg-white text-black my-1 break-all">
-                    [resume](https://drive.google.com/file/d/1e2psMnHHS8t_yZhb_3WZc-flHCraXOga)
+                    [resume](https://drive.google.com/file/d/19JVRbP53htxUW6oULB_aI7XLyJjX43Te)
                 </p>
             </div>
         </div>
