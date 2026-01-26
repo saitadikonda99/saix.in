@@ -4,6 +4,8 @@ import Navbar from '@/components/ai/navbar/navbar'
 import About from '@/components/ai/ui/about/about'
 import Social from '@/components/ai/ui/social/social'
 import Skills from '@/components/ai/ui/skills/skills'
+import Projects from '@/components/ai/ui/projects/projects'
+import Blogs from '@/components/ai/ui/blogs/blogs'
 
 const page = () => {
   return (
@@ -13,6 +15,8 @@ const page = () => {
             <About />
             <Social />
             <Skills />
+            <Projects />
+            <Blogs />
         </div>
     </div>
   )

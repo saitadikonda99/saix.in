@@ -21,7 +21,7 @@ ${SKILLS.map((s) => `| ${s.padEnd(8)} |`).join("\n")}
 
   return (
     <div className="w-full border-r border-l border-border-ai px-4 py-1">
-      <p className="text-white font-mono">## Skills</p>
+      <p className="text-white text-[.8rem] font-mono">## SKILLS</p>
 
       <table className="w-full bg-[#202020] border-collapse border border-zinc-600 my-2">
         <thead className="border border-zinc-600">
