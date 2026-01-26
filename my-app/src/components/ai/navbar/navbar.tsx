@@ -12,7 +12,7 @@ const navbar = () => {
                 <p>[projects](https://saix.in/#projects)</p>
                 <p>[blogs](https://saix.in/#blogs)</p>
                 <button className="bg-white text-black my-1">[social](https://saix.in/#social)</button>
-                <button className="bg-white text-black my-1">[resume](https://saix.in/#resume)</button>
+                <button className="bg-white text-black my-1">[resume](https://drive.google.com/file/d/1e2psMnHHS8t_yZhb_3WZc-flHCraXOga)</button>
             </div>
         </div>
   )

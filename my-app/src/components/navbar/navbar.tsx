@@ -65,7 +65,7 @@ const Navbar = () => {
             >
               CONTACT
             </button>
-            <button className="bg-orange text-white px-4 py-2 rounded-md">RESUME</button>
+            <button className="bg-orange text-white px-4 py-2 rounded-md" onClick={() => window.open('https://drive.google.com/file/d/1e2psMnHHS8t_yZhb_3WZc-flHCraXOga', '_blank')}>RESUME</button>
           </div>
         </div>
       </div>
