@@ -1,8 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Check, Copy } from "lucide-react";
-
-const SKILLS = ["JavaScript", "TypeScript", "Golang", "Java", "React", "Next.js", "Node.js", "Git", "Docker", "MySQL", "Redis"];
+import { SKILLS } from "@/data/skills";
 
 const Skills = () => {
   const [copied, setCopied] = useState(false);

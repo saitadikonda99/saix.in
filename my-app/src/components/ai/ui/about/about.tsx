@@ -1,4 +1,5 @@
 import React from 'react'
+import { aboutData } from '@/data/about'
 
 const about = () => {
     return (
@@ -8,12 +9,7 @@ const about = () => {
                 $ curl https://saix.in/api/about
             </p>
             <p className="text-white pl-4">
-                {`{
-                    "name": "Sai Tadikonda",
-                    "role": "Full-Stack Developer",
-                    "stack": ["Next.js", "React", "Node.js", "Go"],
-                    "focus": "High-performance, scalable web applications"
-                }`}
+                {JSON.stringify(aboutData, null, 20)}
             </p>
         </div>
     )
