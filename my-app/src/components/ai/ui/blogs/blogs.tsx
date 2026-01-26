@@ -6,7 +6,7 @@ const Blogs = () => {
   return (
     <div className="w-full border-r-1 border-l-1 border-border-ai relative">
       <div className="absolute right-0 top-0 bottom-0 w-[1px] bg-white"></div>
-      <div className="w-full px-4 py-4">
+      <div className="w-full px-4 py-2">
         <button className="text-white text-[.8rem]">## BLOGS</button>
         {blogsData.map((blog, index) => (
           <div key={blog.id} className="mb-8 last:mb-0">

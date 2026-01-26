@@ -6,6 +6,7 @@ import Social from '@/components/ai/ui/social/social'
 import Skills from '@/components/ai/ui/skills/skills'
 import Projects from '@/components/ai/ui/projects/projects'
 import Blogs from '@/components/ai/ui/blogs/blogs'
+import Footer from '@/components/ai/footer/footer'
 
 const page = () => {
   return (
@@ -17,6 +18,7 @@ const page = () => {
             <Skills />
             <Projects />
             <Blogs />
+            <Footer />
         </div>
     </div>
   )
