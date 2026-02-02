@@ -45,7 +45,7 @@ export const projectsData: Project[] = [
     title: "Agency Website",
     description: "Professional agency website for Kivas software services.",
     techStack: ["Next.js"],
-    liveUrl: "https://kivas.saitadikonda.in/",
+    liveUrl: "https://kivas0.vercel.app",
     githubUrl: "https://github.com/saitadikonda99/Agency"
   }
 ];
