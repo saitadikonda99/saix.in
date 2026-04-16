@@ -25,7 +25,7 @@ const Social = () => {
               <Linkedin size={20} />
             </Link>
             <Link 
-              href="https://instagram.com/_sai.you" 
+              href="https://instagram.com/saixdotin" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-text-primary hover:text-text-secondary transition-all duration-300"
