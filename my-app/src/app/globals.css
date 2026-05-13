@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Nanum+Pen+Script&display=swap');
 @import "tailwindcss";
-
 
 @theme {
   --font-merriweather: 'Merriweather', serif;
@@ -10,10 +8,6 @@
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-border-primary: var(--border-primary);
-  --color-border-secondary: var(--border-secondary);
-  --color-button-primary: var(--button-primary);
-  --color-background-secondary: var(--background-secondary);
-  --color-border-ai: var(--border-ai);
 }
 
 :root {
@@ -25,7 +19,6 @@
   --border-secondary: #000000;
   --button-primary: #434343;
   --background-secondary: #201e1c;
-  --border-ai: #9c9c9c;
 }
 
 .dark {
@@ -52,34 +45,6 @@
   }
 }
 
-@keyframes blink-highlight {
-  0%, 100% {
-    background-color: transparent;
-  }
-  8.33%, 16.66% {
-    background-color: rgba(250, 90, 20, 0.25);  
-  }
-  25%, 33.33% {
-    background-color: transparent;
-  }
-  41.66%, 50% {
-    background-color: rgba(250, 90, 20, 0.25);  
-  }
-  58.33%, 66.66% {
-    background-color: transparent;
-  }
-  75%, 83.33% {
-    background-color: rgba(250, 90, 20, 0.25);  
-  }
-  91.66% {
-    background-color: transparent;
-  }
-}
-
-.blink-highlight {
-  animation: blink-highlight 1200ms ease-in-out;
-  transition: background-color 0.1s ease;
-}
 
 /* Hover highlight without underline (for name, labels) */
 .hl-hover {

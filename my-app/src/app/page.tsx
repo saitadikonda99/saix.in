@@ -9,7 +9,16 @@ import Footer from "@/components/footer/footer";
 export default function Home() {
   return (
     <>
-<main className="max-w-[580px] mx-auto px-6 pt-16 pb-28 flex flex-col gap-10">
+      <div className="px-5 pt-8">
+        <span
+          className="hl-hover font-bold text-[1.5rem] text-text-primary"
+          style={{ fontFamily: "var(--font-merriweather)" }}
+        >
+          Sai Tadikonda
+        </span>
+      </div>
+
+      <main className="max-w-[580px] mx-auto px-6 pt-8 pb-16 flex flex-col gap-8">
         <About />
         <Experience />
         <Skills />
