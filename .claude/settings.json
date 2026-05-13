@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:smca.io)",
+      "Bash(npx tsc *)",
+      "Bash(git -C /Users/tadikondasaimanikanta/projects/saix.in commit -m ' *)",
+      "Bash(git -C /Users/tadikondasaimanikanta/projects/saix.in add my-app/src/components/ui/section-tag.tsx my-app/src/components/ui/about/about.tsx)",
+      "Bash(git -C /Users/tadikondasaimanikanta/projects/saix.in push)",
+      "Bash(git -C /Users/tadikondasaimanikanta/projects/saix.in add my-app/src/app/icon.svg)",
+      "Bash(git -C /Users/tadikondasaimanikanta/projects/saix.in add -u)"
+    ]
+  }
+}
