@@ -9,6 +9,13 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    id: 0,
+    title: "bluedate.io",
+    description: "Connecting people through shared interests and events.",
+    techStack: ["Next.js", "Node.js", "PostgreSQL"],
+    liveUrl: "https://bluedate.io",
+  },
+  {
     id: 1,
     title: "Enterprise Event Management Platform",
     description: "Enterprise system for KL University's Student Activity Center to manage clubs and activities.",
@@ -46,5 +53,12 @@ export const projectsData: Project[] = [
     techStack: ["Next.js"],
     liveUrl: "https://kivas.saitadikonda.in/",
     githubUrl: "https://github.com/saitadikonda99/Agency",
+  },
+  {
+    id: 6,
+    title: "Context Graph System",
+    description: "Context graph system with an LLM-powered query interface.",
+    techStack: ["Next.js", "Node.js"],
+    liveUrl: "https://dodgeai.saix.in/",
   },
 ];
