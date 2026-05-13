@@ -8,7 +8,7 @@ const About = () => (
     <h1 className="text-[1.4rem] font-bold text-text-primary">hi! i&apos;m sai.</h1>
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <SectionTag>about</SectionTag>
+        <SectionTag className="mb-0">about</SectionTag>
         <Link
           href={RESUME_URL}
           target="_blank"
