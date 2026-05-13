@@ -1,58 +1,44 @@
-import React from 'react'
-import { Github, Linkedin, Instagram, X, Mail } from 'lucide-react'
-import Link from 'next/link'
+import Link from "next/link";
+
+const links = [
+  { label: "GitHub", url: "https://github.com/saitadikonda99" },
+  { label: "LinkedIn", url: "https://linkedin.com/in/tadikondasaimanikanta" },
+  { label: "Instagram", url: "https://instagram.com/_sai.you" },
+  { label: "X", url: "https://x.com/sai_tadikonda_" },
+];
 
 const Social = () => {
   return (
-    <div className="w-full">
-      <div className="w-full flex flex-col items-center justify-between gap-4">
-        <div className="w-full">
-          <div className="w-full flex items-center justify-center gap-6">
-            <Link 
-              href="https://github.com/saitadikonda99" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-text-primary hover:text-text-primary transition-all duration-300"
-            >
-              <Github size={20} />
-            </Link>
-            <Link 
-              href="https://linkedin.com/in/tadikondasaimanikanta" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-text-primary hover:text-text-secondary transition-all duration-300"
-            >
-              <Linkedin size={20} />
-            </Link>
-            <Link 
-              href="https://instagram.com/saixdotin" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-text-primary hover:text-text-secondary transition-all duration-300"
-            >
-              <Instagram size={20} />
-            </Link>
-            <Link 
-              href="https://x.com/sai_tadikonda_" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-text-primary hover:text-text-secondary transition-all duration-300"
-            >
-              <X size={20} />
-            </Link>
-            <Link 
-              href="mailto:saitadikonda.dev@gmail.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-text-primary hover:text-text-secondary transition-all duration-300"
-            >
-              <Mail size={20} />
-            </Link>
-          </div>
-        </div>
+    <div>
+      <div className="inline-block bg-[#f2f0e5] dark:bg-[#242424] text-text-primary px-2 py-0.5 text-[0.8rem] mb-3">
+        contact
       </div>
+      <p className="text-text-primary">
+        Find me on{" "}
+        {links.map((link, i) => (
+          <span key={link.label}>
+            <Link
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hl-link"
+            >
+              {link.label}
+            </Link>
+            {i < links.length - 2 ? ", " : i === links.length - 2 ? " or " : ""}
+          </span>
+        ))}
+        {", or "}
+        <Link
+          href="mailto:saitadikonda.dev@gmail.com"
+          className="hl-link"
+        >
+          email me
+        </Link>
+        .
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default Social
+export default Social;

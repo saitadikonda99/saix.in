@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Merriweather, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/providers/providers";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import Header from "@/components/header/header";
 
-import HumanAI from "@/components/human-ai/human-ai";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const merriweather = Merriweather({
+  variable: "--font-merriweather",
   subsets: ["latin"],
+  weight: ["400", "700", "900"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
   title: "Tadikonda Sai Manikanta's Portfolio",
-  description: "Tadikonda Sai Manikanta, a Full-Stack Developer passionate about crafting high-performance, scalable web applications. With expertise in Next.js, React, Node.js, and Go.",
+  description:
+    "Tadikonda Sai Manikanta, a Full-Stack Developer passionate about crafting high-performance, scalable web applications. With expertise in Next.js, React, Node.js, and Go.",
 };
 
 export default function RootLayout({
@@ -29,13 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${merriweather.variable} ${robotoMono.variable} antialiased`}>
         <Providers>{children}</Providers>
         <Analytics />
         <SpeedInsights />
-        <HumanAI />
+        <Header />
       </body>
     </html>
   );

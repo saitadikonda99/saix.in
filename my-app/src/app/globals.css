@@ -3,8 +3,8 @@
 
 
 @theme {
-  --font-michroma: 'Michroma', sans-serif;
-  --font-nanum-pen-script: 'Nanum Pen Script', cursive;
+  --font-merriweather: 'Merriweather', serif;
+  --font-roboto-mono: 'Roboto Mono', monospace;
   --color-background: var(--background);
   --color-orange: var(--orange);
   --color-text-primary: var(--text-primary);
@@ -40,8 +40,15 @@
 
 @layer base {
   body {
-    font-family: monospace;
+    font-family: var(--font-roboto-mono), monospace;
     background-color: var(--background);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-merriweather), serif;
   }
 }
 
@@ -72,4 +79,27 @@
 .blink-highlight {
   animation: blink-highlight 1200ms ease-in-out;
   transition: background-color 0.1s ease;
+}
+
+/* Hover highlight without underline (for name, labels) */
+.hl-hover {
+  transition: background-color 0.15s ease;
+  cursor: default;
+}
+.hl-hover:hover {
+  background-color: #ffd00066 !important;
+}
+
+/* Link hover highlight — yellow marker effect */
+.hl-link {
+  text-decoration: underline;
+  transition: background-color 0.15s ease;
+}
+.hl-link:hover {
+  background-color: #ffd00066 !important;
+}
+
+/* Permanent highlight for important words */
+.hl-mark {
+  background-color: #ffd00066;
 }
