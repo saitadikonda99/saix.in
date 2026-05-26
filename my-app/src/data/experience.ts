@@ -31,6 +31,6 @@ export const experienceData: Job[] = [
     duration: "6 mos",
     location: "Vijayawada, India",
     mode: "On-site",
-    companyUrl: "https://sac.kluniversity.in",
+    companyUrl: "https://github.com/saitadikonda99/Kepler-452b",
   },
 ];
