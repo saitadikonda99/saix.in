@@ -5,7 +5,7 @@ const RESUME_URL = "https://drive.google.com/file/d/19JVRbP53htxUW6oULB_aI7XLyJj
 
 const About = () => (
   <div className="flex flex-col gap-5">
-    <h1 className="text-[1.4rem] font-bold text-text-primary">hi! i&apos;m sai.</h1>
+    <h1 className="text-[1.4rem] font-extrabold text-text-primary">hi! i&apos;m sai.</h1>
     <div>
       <div className="flex items-baseline gap-3 mb-3">
         <SectionTag noMargin>about</SectionTag>

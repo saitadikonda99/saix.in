@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <div className="px-5 pt-4">
         <span
-          className="hl-hover font-bold text-[1.5rem] text-text-primary"
+          className="hl-hover font-extrabold text-[1.5rem] text-black"
           style={{ fontFamily: "var(--font-merriweather)" }}
         >
           Tadikonda Sai Manikanta

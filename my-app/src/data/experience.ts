@@ -17,7 +17,7 @@ export const experienceData: Job[] = [
     company: "bluedate.io",
     type: "Full-time",
     period: "Jan 2026 – Present",
-    duration: "5 mos",
+    duration: "7 mos",
     location: "Vijayawada, India",
     mode: "Remote",
     companyUrl: "https://bluedate.io",
