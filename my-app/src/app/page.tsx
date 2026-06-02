@@ -3,6 +3,7 @@ import Experience from "@/components/ui/experience/experience";
 import Skills from "@/components/ui/skills/skills";
 import Social from "@/components/ui/social/social";
 import Projects from "@/components/ui/projects/projects";
+import AskAI from "@/components/ui/ask-ai/ask-ai";
 import Blogs from "@/components/ui/blogs/blogs";
 import Footer from "@/components/footer/footer";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <Social />
         <hr className="border-border-primary" />
         <Projects />
+        <AskAI />
         <Blogs />
         <Footer />
       </main>
