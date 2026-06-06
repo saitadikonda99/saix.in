@@ -20,7 +20,7 @@ export const projectsData: Project[] = [
     title: "Enterprise Event Management Platform",
     description: "Enterprise system for KL University's Student Activity Center to manage clubs and activities.",
     techStack: ["Next.js", "Node.js", "TypeScript", "MySQL", "Docker", "Redis"],
-    liveUrl: "https://github.com/saitadikonda99/Kepler-452b",
+    liveUrl: "https://sac.kluniversity.in",
     githubUrl: "https://github.com/saitadikonda99/Kepler-452b",
   },
   {
