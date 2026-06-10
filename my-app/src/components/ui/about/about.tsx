@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SectionTag from "@/components/ui/section-tag";
 
-const RESUME_URL = "https://drive.google.com/file/d/19JVRbP53htxUW6oULB_aI7XLyJjX43Te";
+const RESUME_URL = "https://drive.google.com/file/d/1pugZmokz5xzvWI4byrdcN9TEUnP_2T34/view";
 
 const About = () => (
   <div className="flex flex-col gap-5">
