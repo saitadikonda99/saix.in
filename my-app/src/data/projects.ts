@@ -61,4 +61,11 @@ export const projectsData: Project[] = [
     techStack: ["Next.js", "Node.js"],
     liveUrl: "https://dodgeai.saix.in/",
   },
+  {
+    id: 7,
+    title: "AirClipboard",
+    description: "Universal clipboard for Android and macOS. Copy on one device, paste on another over local Wi-Fi.",
+    techStack: ["Android", "macOS", "Swift", "Kotlin"],
+    githubUrl: "https://github.com/saitadikonda99/AirClipboard",
+  },
 ];
