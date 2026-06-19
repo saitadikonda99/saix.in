@@ -22,7 +22,7 @@ const About = () => (
         <span className="hl-mark">Next.js</span>,{" "}
         <span className="hl-mark">React</span>,{" "}
         <span className="hl-mark">Node.js</span>, and{" "}
-        <span className="hl-mark">Go</span>,
+        <span className="hl-mark">Python</span>,
         I specialize in building seamless digital experiences and optimizing system
         performance for real-world impact.
       </p>

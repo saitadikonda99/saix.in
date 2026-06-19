@@ -6,6 +6,7 @@ import Projects from "@/components/ui/projects/projects";
 import AskAI from "@/components/ui/ask-ai/ask-ai";
 import Blogs from "@/components/ui/blogs/blogs";
 import Footer from "@/components/footer/footer";
+import VisitorBadge from "@/components/ui/visitor-badge/visitor-badge";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         >
           Tadikonda Sai Manikanta
         </span>
+        <VisitorBadge />
       </div>
 
       <main className="max-w-[580px] mx-auto px-6 pt-5 pb-10 flex flex-col gap-5">
