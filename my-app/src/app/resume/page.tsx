@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Resume — Tadikonda Sai Manikanta",
 };
 
-const FILE_ID = "1pugZmokz5xzvWI4byrdcN9TEUnP_2T34";
+const FILE_ID = "1zULEEtIYHqG4PPIyghxImB15GUjMx7sg";
 const DRIVE_EMBED = `https://drive.google.com/file/d/${FILE_ID}/preview`;
 const DRIVE_DOWNLOAD = `https://drive.google.com/uc?export=download&id=${FILE_ID}`;
 
