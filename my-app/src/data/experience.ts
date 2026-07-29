@@ -13,7 +13,7 @@ export interface Job {
 export const experienceData: Job[] = [
   {
     id: 1,
-    title: "Founding Engineer",
+    title: "Founder/Founding Engineer",
     company: "bluedate.io",
     type: "Full-time",
     period: "Jan 2026 – May 2026",
