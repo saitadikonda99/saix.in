@@ -20,7 +20,7 @@ export const experienceData: Job[] = [
     duration: "6 mos",
     location: "Vijayawada, India",
     mode: "Remote",
-    companyUrl: "https://bluedate.io",
+    companyUrl: "https://tryren.in",
   },
   {
     id: 2,
@@ -31,6 +31,6 @@ export const experienceData: Job[] = [
     duration: "6 mos",
     location: "Vijayawada, India",
     mode: "On-site",
-    companyUrl: "https://sac.kluniversity.in",
+    companyUrl: "https://sac.saix.in",
   },
 ];
