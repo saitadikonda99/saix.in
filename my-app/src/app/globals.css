@@ -21,16 +21,6 @@
   --background-secondary: #201e1c;
 }
 
-.dark {
-  --background: #1a1a1a;
-  --orange: #fb631b;
-  --text-primary: #acacac;
-  --text-secondary: #858483;
-  --border-primary: #9c9c9c;
-  --border-secondary: #9c9c9c;
-  --background-secondary: #201e1c;
-}
-
 @layer base {
   body {
     font-family: var(--font-roboto-mono), monospace;
@@ -43,6 +33,150 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-merriweather), serif;
   }
+}
+
+/* Prevent body scroll when wallet is open */
+body.wallet-open {
+  overflow: hidden;
+}
+
+/* Ensure main content scrolls properly */
+.main-content-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar for cleaner UI */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================
+   Wallet UI primitives
+   ============================================ */
+
+/* Buttons: icon + text always side by side, vertically centered */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.btn svg {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--button-primary);
+  color: #ffffff;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: #2f2f2f;
+}
+
+.btn-accent {
+  background-color: var(--orange);
+  color: #ffffff;
+}
+.btn-accent:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+.btn-ghost:hover:not(:disabled) {
+  background-color: #f2f0e5;
+}
+
+/* Icon-only buttons */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 0.375rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+.icon-btn svg {
+  display: block;
+  width: 1.05rem;
+  height: 1.05rem;
+}
+.icon-btn:hover {
+  background-color: #f2f0e5;
+  color: var(--text-primary);
+}
+
+/* Cards / form panels */
+.record-form {
+  background-color: var(--background);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .record-form {
+    padding: 1rem;
+    border-radius: 0.625rem;
+  }
+}
+
+/* Form section heading */
+.record-form h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+/* Section label ("kicker") */
+.kicker {
+  color: #8ba2ff;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+/* Field rows */
+.field-row {
+  border-bottom: 1px solid color-mix(in srgb, var(--border-primary) 45%, transparent);
+}
+.field-row:last-child {
+  border-bottom: 0;
+}
+.field-row .fl {
+  color: var(--text-secondary);
 }
 
 

@@ -1,10 +1,12 @@
-import { Redis } from "@upstash/redis";
 import { NextResponse } from "next/server";
 
-const redis = new Redis({
-  url: process.env.KV_REST_API_URL!,
-  token: process.env.KV_REST_API_TOKEN!,
-});
+// Simple in-memory store for visitor stats (resets on server restart)
+// For production, use Redis or a database
+const visitorStore = {
+  total: 0,
+  weekly: 0,
+  daily: new Map<string, number>(),
+};
 
 function getWeekKey(): string {
   const d = new Date();
@@ -23,34 +25,29 @@ function getDayKey(offset = 0): string {
   return `visitors:day:${utc.getUTCFullYear()}-${String(utc.getUTCMonth() + 1).padStart(2, "0")}-${String(utc.getUTCDate()).padStart(2, "0")}`;
 }
 
-async function getDailyCounts(): Promise<number[]> {
+function getDailyCounts(): number[] {
   const keys = Array.from({ length: 7 }, (_, i) => getDayKey(6 - i));
-  const values = await Promise.all(keys.map((k) => redis.get<number>(k)));
-  return values.map((v) => v ?? 0);
+  return keys.map(k => visitorStore.daily.get(k) ?? 0);
 }
 
 export async function GET() {
   const weekKey = getWeekKey();
-  const [total, weekly, dailyCounts] = await Promise.all([
-    redis.get<number>("visitors:total"),
-    redis.get<number>(weekKey),
+  const [total, weekly, dailyCounts] = [
+    visitorStore.total,
+    visitorStore.weekly,
     getDailyCounts(),
-  ]);
-  return NextResponse.json({ total: total ?? 0, weeklyDelta: weekly ?? 0, dailyCounts });
+  ];
+  return NextResponse.json({ total, weeklyDelta: weekly, dailyCounts });
 }
 
 export async function POST() {
   const weekKey = getWeekKey();
   const dayKey = getDayKey();
-  const [total, weekly] = await Promise.all([
-    redis.incr("visitors:total"),
-    redis.incr(weekKey),
-    redis.incr(dayKey),
-  ]);
-  await Promise.all([
-    redis.expire(weekKey, 14 * 24 * 60 * 60),
-    redis.expire(dayKey, 32 * 24 * 60 * 60),
-  ]);
-  const dailyCounts = await getDailyCounts();
-  return NextResponse.json({ total, weeklyDelta: weekly, dailyCounts });
+  
+  visitorStore.total = (visitorStore.total ?? 0) + 1;
+  visitorStore.weekly = (visitorStore.weekly ?? 0) + 1;
+  visitorStore.daily.set(dayKey, (visitorStore.daily.get(dayKey) ?? 0) + 1);
+  
+  const dailyCounts = getDailyCounts();
+  return NextResponse.json({ total: visitorStore.total, weeklyDelta: visitorStore.weekly, dailyCounts });
 }

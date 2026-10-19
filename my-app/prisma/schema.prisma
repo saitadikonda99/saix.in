@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model WalletRecord {
+  id        String   @id @default(cuid())
+  userId    String   @default("default-user")
+  category  WalletCategory
+  title     String
+  data      Json
+  fileLinks Json?
+  tags      String[] @default([])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([category])
+  @@index([updatedAt])
+}
+
+model WalletSession {
+  id        String   @id @default(cuid())
+  userId    String   @default("default-user")
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+enum WalletCategory {
+  PERSONAL_DETAILS
+  CONTACT_INFORMATION
+  INDIAN_IDENTITY_DOCUMENTS
+  BANKING_FINANCE
+  EDUCATION
+  CAREER_EMPLOYMENT
+  SOCIAL_LINKS
+  DOCUMENTS_FILES
+  OTHER_RECORDS
+}
