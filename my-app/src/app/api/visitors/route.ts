@@ -1,8 +1,18 @@
 import { NextResponse } from "next/server";
+import {
+  VISITOR_TOTAL_KEY,
+  ensureVisitorSchema,
+  incrementVisitStats,
+  readVisitCounts,
+} from "@/lib/visitor-stats";
 
-// Simple in-memory store for visitor stats (resets on server restart)
-// For production, use Redis or a database
-const visitorStore = {
+export const dynamic = "force-dynamic";
+
+const NO_STORE = { "Cache-Control": "no-store" } as const;
+
+// Fallback store used only when Supabase is unreachable, so the badge
+// still renders instead of erroring out.
+const fallbackStore = {
   total: 0,
   weekly: 0,
   daily: new Map<string, number>(),
@@ -25,29 +35,59 @@ function getDayKey(offset = 0): string {
   return `visitors:day:${utc.getUTCFullYear()}-${String(utc.getUTCMonth() + 1).padStart(2, "0")}-${String(utc.getUTCDate()).padStart(2, "0")}`;
 }
 
-function getDailyCounts(): number[] {
-  const keys = Array.from({ length: 7 }, (_, i) => getDayKey(6 - i));
-  return keys.map(k => visitorStore.daily.get(k) ?? 0);
+/** Last 7 day keys in chronological order (oldest first, today last). */
+function getRecentDayKeys(): string[] {
+  return Array.from({ length: 7 }, (_, i) => getDayKey(6 - i));
+}
+
+function fallbackSnapshot(weekKey: string, dayKeys: string[]) {
+  return {
+    total: fallbackStore.total,
+    weeklyDelta: fallbackStore.weekly,
+    dailyCounts: dayKeys.map((k) => fallbackStore.daily.get(k) ?? 0),
+  };
+}
+
+async function snapshot(weekKey: string, dayKeys: string[]) {
+  try {
+    const schemaReady = await ensureVisitorSchema();
+    if (!schemaReady) return fallbackSnapshot(weekKey, dayKeys);
+
+    const counts = await readVisitCounts([VISITOR_TOTAL_KEY, weekKey, ...dayKeys]);
+    return {
+      total: counts.get(VISITOR_TOTAL_KEY) ?? 0,
+      weeklyDelta: counts.get(weekKey) ?? 0,
+      dailyCounts: dayKeys.map((k) => counts.get(k) ?? 0),
+    };
+  } catch (error) {
+    console.error("Visitor stats read failed, using fallback:", error);
+    return fallbackSnapshot(weekKey, dayKeys);
+  }
 }
 
 export async function GET() {
-  const weekKey = getWeekKey();
-  const [total, weekly, dailyCounts] = [
-    visitorStore.total,
-    visitorStore.weekly,
-    getDailyCounts(),
-  ];
-  return NextResponse.json({ total, weeklyDelta: weekly, dailyCounts });
+  const stats = await snapshot(getWeekKey(), getRecentDayKeys());
+  return NextResponse.json(stats, { headers: NO_STORE });
 }
 
 export async function POST() {
   const weekKey = getWeekKey();
-  const dayKey = getDayKey();
-  
-  visitorStore.total = (visitorStore.total ?? 0) + 1;
-  visitorStore.weekly = (visitorStore.weekly ?? 0) + 1;
-  visitorStore.daily.set(dayKey, (visitorStore.daily.get(dayKey) ?? 0) + 1);
-  
-  const dailyCounts = getDailyCounts();
-  return NextResponse.json({ total: visitorStore.total, weeklyDelta: visitorStore.weekly, dailyCounts });
+  const dayKeys = getRecentDayKeys();
+  const todayKey = dayKeys[dayKeys.length - 1];
+
+  try {
+    const schemaReady = await ensureVisitorSchema();
+    if (!schemaReady) throw new Error("visitor_stats table unavailable");
+
+    await incrementVisitStats([VISITOR_TOTAL_KEY, weekKey, todayKey]);
+  } catch (error) {
+    console.error("Visitor increment failed, using in-memory fallback:", error);
+    fallbackStore.total += 1;
+    fallbackStore.weekly += 1;
+    fallbackStore.daily.set(todayKey, (fallbackStore.daily.get(todayKey) ?? 0) + 1);
+    return NextResponse.json(fallbackSnapshot(weekKey, dayKeys), { headers: NO_STORE });
+  }
+
+  const stats = await snapshot(weekKey, dayKeys);
+  return NextResponse.json(stats, { headers: NO_STORE });
 }
