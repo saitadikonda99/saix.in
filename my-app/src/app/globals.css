@@ -111,6 +111,15 @@ body.wallet-open {
   background-color: #f2f0e5;
 }
 
+/* Small button variant */
+.btn-sm {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.78rem;
+  line-height: 1.1rem;
+  border-radius: 0.45rem;
+  gap: 0.4rem;
+}
+
 /* Icon-only buttons */
 .icon-btn {
   display: inline-flex;

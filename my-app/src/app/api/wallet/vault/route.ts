@@ -171,9 +171,10 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "Vault not found" }, { status: 404 });
     }
 
-    const updatedDocuments = ((currentVault.documents as { id?: string }[]) || []).filter(
-      (doc) => doc.id !== documentId
-    );
+    const docs = (currentVault.documents as { id?: string; path?: string }[]) || [];
+    const targetDoc = docs.find((doc) => doc.id === documentId);
+
+    const updatedDocuments = docs.filter((doc) => doc.id !== documentId);
 
     const vaultData = {
       user_id: "default-user",
@@ -192,6 +193,18 @@ export async function DELETE(request: NextRequest) {
     if (error) {
       console.error("Supabase error:", error);
       return NextResponse.json({ error: "Failed to delete document" }, { status: 500 });
+    }
+
+    // Best-effort: also remove the actual file from private storage so deleted
+    // documents don't linger in the bucket.
+    if (targetDoc?.path) {
+      const { error: removeError } = await supabase.storage
+        .from("wallet-documents")
+        .remove([targetDoc.path]);
+
+      if (removeError) {
+        console.warn("Failed to remove storage object:", removeError.message);
+      }
     }
 
     return NextResponse.json(savedData);

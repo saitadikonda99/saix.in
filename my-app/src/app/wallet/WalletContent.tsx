@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Lock, Menu, X, Upload, Settings, Download, Copy, Eye, EyeOff, Trash2, Check, User, FileText, Key, Shield, Pencil } from "lucide-react";
 import { DocumentUploadModal } from "./DocumentUploadModal";
+import { DocumentViewModal } from "./DocumentViewModal";
 import { FIELD_GROUPS, PersonalVaultData, DocumentVaultData, VaultData, VaultSettings } from "@/types/wallet";
 
 function getDefaultPersonal(): PersonalVaultData {
@@ -230,11 +231,13 @@ function DocumentsSection({
   onAddDocumentClick,
   onDeleteDocument,
   onCopyUrl,
+  onViewDocument,
 }: {
   documents: DocumentVaultData[];
   onAddDocumentClick: () => void;
   onDeleteDocument: (id: string) => void;
   onCopyUrl: (url: string) => void;
+  onViewDocument: (doc: DocumentVaultData) => void;
 }) {
   return (
     <div className="mx-auto w-full max-w-4xl">
@@ -281,7 +284,11 @@ function DocumentsSection({
                 </div>
               </div>
               <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-center border-t border-border-primary/50 pt-2.5 sm:border-0 sm:pt-0 w-full sm:w-auto justify-end">
-                <a href={doc.url} target="_blank" rel="noopener noreferrer" className="icon-btn" title="Open document">
+                <button className="btn btn-ghost btn-sm mr-1" title="Preview document" onClick={() => onViewDocument(doc)}>
+                  <Eye className="w-3.5 h-3.5" />
+                  View
+                </button>
+                <a href={doc.url} target="_blank" rel="noopener noreferrer" className="icon-btn" title="Download / open in new tab">
                   <Download className="w-4 h-4" />
                 </a>
                 <button className="icon-btn" title="Copy URL" onClick={() => onCopyUrl(doc.url)}>
@@ -511,6 +518,7 @@ export function WalletContent({ onLock }: { onLock: () => void }) {
   const [busy, setBusy] = useState(false);
   const [pin, setPin] = useState("");
   const [showUploadModal, setShowUploadModal] = useState(false);
+  const [viewingDoc, setViewingDoc] = useState<DocumentVaultData | null>(null);
 
   // Prevent body scroll when wallet is open
   useEffect(() => {
@@ -738,6 +746,7 @@ export function WalletContent({ onLock }: { onLock: () => void }) {
               onAddDocumentClick={() => setShowUploadModal(true)}
               onDeleteDocument={deleteDocument}
               onCopyUrl={copyDocumentUrl}
+              onViewDocument={(doc) => setViewingDoc(doc)}
             />
           ) : (
             <SettingsSection
@@ -759,6 +768,12 @@ export function WalletContent({ onLock }: { onLock: () => void }) {
         isOpen={showUploadModal}
         onClose={() => setShowUploadModal(false)}
         onUploadComplete={loadData}
+      />
+
+      {/* Document View / Preview Modal */}
+      <DocumentViewModal
+        doc={viewingDoc}
+        onClose={() => setViewingDoc(null)}
       />
     </div>
   );

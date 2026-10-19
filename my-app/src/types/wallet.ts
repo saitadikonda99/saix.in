@@ -86,6 +86,12 @@ export interface DocumentVaultData {
   url: string;
   type: string;
   uploadedAt: string;
+  /** Storage path inside the private bucket (set by the upload API) */
+  path?: string;
+  /** File size in bytes (set by the upload API) */
+  size?: number;
+  /** Optional description entered at upload time */
+  description?: string;
 }
 
 export interface VaultSettings {
